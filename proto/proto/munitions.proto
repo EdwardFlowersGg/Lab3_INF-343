@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package grpc;
+
+option go_package = "./proto";
+
+// El servicio que maneja las solicitudes de municiones.
+service MunitionsService {
+  // SolicitarM es el método para pedir municiones.
+  rpc SolicitarM(SolicitarMRequest) returns (SolicitarMResponse);
+}
+
+// SolicitarMRequest es la solicitud para municiones.
+message SolicitarMRequest {
+  int32 teamID = 1;  // El identificador del equipo que hace la solicitud.
+  int32 AT = 2;      // La cantidad de municiones Anti Terrestre solicitadas.
+  int32 MP = 3;      // La cantidad de Municiones Pesadas solicitadas.
+}
+
+// SolicitarMResponse es la respuesta a una solicitud de municiones.
+message SolicitarMResponse {
+  bool aprobado = 1;  // True si la solicitud es aprobada, false en caso contrario.
+}
