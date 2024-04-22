@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-package munitions;
+package grpc;
+
+option go_package = "./proto";
 
 // El servicio que maneja las solicitudes de municiones.
 service MunitionsService {
